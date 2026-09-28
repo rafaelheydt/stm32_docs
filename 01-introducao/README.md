@@ -207,7 +207,7 @@ Botão **GENERATE CODE** (canto superior direito do CubeMX) — gera o projeto c
 2. Importar a pasta do projeto gerado pela extensão, que reconhece o formato CMake
 3. Compilar e gravar/depurar com o ST-Link V2 por SWD
 
-### Opção B — STM32CubeIDE (projeto Eclipse) *(passos a confirmar na prática)*
+### Opção B — STM32CubeIDE (projeto Eclipse) 
 
 1. No STM32CubeIDE: **File → Import → General → Existing Projects into Workspace**
 2. Em "Select root directory", apontar para a pasta gerada pelo CubeMX e concluir a importação

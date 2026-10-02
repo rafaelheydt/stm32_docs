@@ -7,9 +7,10 @@ Registro didático do aprendizado prático de STM32 + FreeRTOS, organizado em tu
 
 ## Tutoriais
 
-| # | Tutorial | Conteúdo |
-| --- | --- | --- |
-| 01 | [Introdução](01-introducao/README.md) | Configuração inicial do projeto: clock (HSE + PLL + barramentos) e debug (Serial Wire) |
+| # | Tutorial | Categoria | Conteúdo |
+| --- | --- | --- | --- |
+| 01 | [Introdução](01-introducao/README.md) | Periférico (Clock/Debug) | Configuração inicial do projeto: clock (HSE + PLL + barramentos) e debug (Serial Wire) |
+| 02 | [USART](02-usart/README.md) | Periférico | Configuração do USART3 e funções da HAL (`HAL_UART_Transmit`/`HAL_UART_Receive`) |
 
 <!--
 ## Convenção

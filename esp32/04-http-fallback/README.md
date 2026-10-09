@@ -220,6 +220,7 @@ Com HTTPS, reaproveitar o mesmo `esp_http_client_handle_t` entre vários envios 
 | Linhas enviadas duas vezes depois de um reset | O reset aconteceu entre a resposta de sucesso e a remoção da linha do fallback | Limite conhecido da troca de arquivo não atômica; se o destino precisar de "exactly once", inclua um identificador único por item para o lado do servidor deduplicar |
 | `esp_http_client.h` não encontrado no build | O componente não está no `REQUIRES` | Adicionar `esp_http_client` |
 | Erro de certificado só em HTTPS | Nenhum `cert_pem` nem `crt_bundle_attach` configurado | Escolher um dos dois, conforme a tabela de HTTPS |
+| O disjuntor nunca fecha — nenhum envio HTTP é tentado de novo, mesmo com o destino no ar e a rede ok | `abrir_disjuntor()` chamado mesmo quando `pode_tentar()` já era falso (ou seja, o envio nem chegou a ser tentado) — cada item novo, chegando mais rápido que a janela do disjuntor, empurra a reabertura pra sempre. Achado de campo real: aconteceu ao reaproveitar este padrão num projeto com leituras a cada ~1 s e disjuntor de 30 s | Só chamar `abrir_disjuntor()` dentro do `if (pode_tentar())`, depois de `enviar()` ter sido chamado e falhado de fato — nunca como efeito colateral do disjuntor já estar aberto. O pseudocódigo da seção "Task com fila e disjuntor" já mostra a ordem certa; o bug era uma chamada incondicional fora desse `if` |
 
 ### Testar a lógica sem hardware
 
